@@ -1,16 +1,20 @@
 import argparse
 import requests
 
-host = "https://<yourhosthere>"
+hosts = ["<your-host>", "http://127.0.0.1:5000"]
 endpoint = "listen"
 
+parser = argparse.ArgumentParser(description='Termux-Remote-Client')
+parser.add_argument('-e', '--exec', help='Execute command on phone', required=True)
+parser.add_argument('-l', '--local', help='Sends command to localhost', required=False)
+
+args = parser.parse_args()
+if args.local:
+    host = hosts[1]
+else:
+    host = hosts[0]
 
 def send_command():
-    parser = argparse.ArgumentParser(description='Termux-Remote-Client')
-    parser.add_argument('-e', '--exec', help='Execute command on phone', required=True)
-
-    args = parser.parse_args()
-
     command = args.exec
 
     data = {
