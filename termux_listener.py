@@ -7,7 +7,7 @@ from time import sleep
 from datetime import datetime
 
 
-hosts = ["<your-host>", "http://127.0.0.1:5000"]
+hosts = ["https://tg-matrix-mirror.herokuapp.com", "http://127.0.0.1:5000"]
 endpoint = "listen"
 
 parser = argparse.ArgumentParser(description='Termux-Remote-Client')

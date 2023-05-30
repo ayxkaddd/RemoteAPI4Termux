@@ -19,7 +19,6 @@ a {
 }
 
 a:hover {
-    color: #00FF00;
     text-decoration: underline;
 }
 
@@ -51,6 +50,14 @@ a:hover {
     font-family: "moreperfectdos", monospace;
     font-size: 20px;
 }
+
+.panel-link-red {
+    color: red;
+    margin-right: 10px;
+    font-family: "moreperfectdos", monospace;
+    font-size: 20px;
+}
+
 
 .body-container {
     position: absolute;

@@ -12,9 +12,9 @@ def createFile(log):
 
 
 @app.route("/clear", methods=["GET"])
-def clearLogs():
+def hideLogs():
     for file in os.listdir("files/"):
-        os.system(f"rm files/{file}")
+        os.system(f"mv files/{file} files/{file}.hide")
     
     response = {
         "message": "Logs cleared",      
@@ -108,11 +108,14 @@ def showLogs():
     try:
         logs = []
         for log in os.listdir("files/"):
-            link = log
-            with open(f"files/{log}", "r", encoding="utf-8") as file:
-                caption = [i.split("\n")[0].split("# ")[-1] for i in file.readlines() if i[0] == "#"]
-            log = {"link": link, "caption": caption[0]}
-            logs.append(log)
+            if log.split(".")[-1] == "hide":
+                continue
+            else:
+                link = log
+                with open(f"files/{log}", "r", encoding="utf-8") as file:
+                    caption = [i.split("\n")[0].split("# ")[-1] for i in file.readlines() if i[0] == "#"]
+                log = {"link": link, "caption": caption[0]}
+                logs.append(log)
         print(logs)
         return render_template("index.html", files=logs)
     except IndexError as e:
