@@ -12,6 +12,38 @@ html, body {
     padding: 0;
 }
 
+
+/* Button Styles */
+.button {
+    background-color: rgba(4, 104, 17, 0.308);
+    color: #00FF00;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgba(4, 104, 17, 0.5);
+}
+
+/* Input Styles */
+.input {
+    background-color: rgba(4, 104, 17, 0.308);
+    color: #00FF00;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.input:focus {
+    outline: none;
+    box-shadow: 0 0 5px #00FF00;
+}
+
 /* Link Styles */
 a {
     color: #00FF00;
@@ -32,17 +64,31 @@ a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 2%;
+    height: 3%;
     z-index: 999;
 }
 
+
+.username-link {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.big-link {
+    font-family: "moreperfectdos", monospace;
+    font-size: 120%;
+}
+
 .panel-icon {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px black;
     background-image: url("../termux.png");
     background-size: cover;
+    margin-top: 10px;
     margin-right: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .panel-link {

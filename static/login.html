@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>.login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        @font-face {
+            font-family: "moreperfectdos";
+            src: url("moreperfectdos.ttf");
+        }
+    </style>
+</head>
+
+<body>
+    <div class="panel">
+        <div class="panel-icon"></div>
+        <a class="panel-link" href="https://github.com/ayxkaddd/RemoteAPI4Termux">[github]</a>
+    </div>
+
+    <div id="particles-js"></div>
+
+    <div class="body-container">
+        <div class="file-box">
+            <h3>[login page]</h3>
+            <form method="POST">
+                <input type="text" name="username" placeholder="[username]" class="input" required>
+                <input type="password" name="password" placeholder="[password]" class="input" required>
+                <br><input type="submit" value="[/]" class="button">
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>
