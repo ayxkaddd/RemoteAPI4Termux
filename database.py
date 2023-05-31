@@ -46,3 +46,12 @@ def insert_user(username, hashed_password):
         # Close the connection
         db.close()
 
+def hash_password(password):
+    hashed_password = hashlib.sha256(password.encode()).hexdigest()
+    return hashed_password
+
+
+if __name__ == "__main__":
+    username = input("username: ")
+    password = input("password: ")
+    insert_user(username, hash_password(password))
