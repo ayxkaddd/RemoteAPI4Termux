@@ -45,9 +45,16 @@ def reviceLogs():
 
 @app.route("/files/<filename>", methods=["GET"])
 def readFile(filename):
-    with open(f"files/{filename}", 'r') as file:
-        content = file.read()
-        return Response(content, mimetype='text/plain')
+    try:
+        with open(f"files/{filename}", 'r') as file:
+            content = file.read()
+            return Response(content, mimetype='text/plain')
+    except Exception as e:
+        response = {
+            "error-message": f"{e}",
+            "request-status": "BAD"
+        }
+        return jsonify(response)
 
 
 @app.route('/upload', methods=['POST'])
