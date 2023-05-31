@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.imgViewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="panel">
+        <div class="panel-icon"></div>
+        <a class="panel-link" href="https://github.com/ayxkaddd/RemoteAPI4Termux">[github]</a>
+        <a class="panel-link-red" href="/clear" title="hides all logs"">[clear]</a>
+        <a class="panel-link-red" href="/logout" title="logout">[logout]</a>
+        <div class="username-link">
+            <p class="panel-link">logged as [{{ username }}]</p>
+        </div>    
+    </div>
+
+    <!-- particles.js container -->
+    <div id="particles-js"></div>
+
+    <!-- scripts -->
+    <script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    
+    <div class="body-container">
+        <div class="file-box">
+            <img src="{{ url_for('static', filename='tmp.jpeg')}}" alt="tmp.jpeg" class="image">
+        </div>
+    </div>
+</body>
+</html>

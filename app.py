@@ -82,7 +82,7 @@ def save_uploaded_image():
         return 'No file selected.'
 
     if file and allowed_file(file.filename):
-        file.save('tmp.jpeg')
+        file.save('static/tmp.jpeg')
         return 'File saved as tmp.jpeg.'
     else:
         return 'Invalid file format.'
@@ -92,13 +92,11 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() == 'jpeg'
 
 
-@app.route("/img/<imageFile>", methods=["GET"])
-def renderImage(imageFile):
+@app.route("/img/", methods=["GET"])
+def renderImage():
     print("test")
     try:
-        with open(f"{imageFile}", "rb") as file:
-            content = file.read()
-            return Response(content, mimetype='image/jpeg')
+        return render_template("imageViewer.html", username=session['username'])
     except FileNotFoundError as e:
         return f"{e}"
 
