@@ -4,16 +4,12 @@ from database import Database
 from flask import Flask, request, redirect, make_response, jsonify, Response, render_template, session
 from flask_session import Session
 
-
-app = Flask(__name__, template_folder="static/")
 command = "null"
 
+app = Flask(__name__, template_folder="static/")
 app.config['SECRET_KEY'] = 'banana'
-
-# Configure the session type as a server-side session
 app.config['SESSION_TYPE'] = 'filesystem'
 
-# Initialize Flask-Session
 Session(app)
 
 def hash_password(password):
@@ -95,10 +91,13 @@ def allowed_file(filename):
 @app.route("/img/", methods=["GET"])
 def renderImage():
     print("test")
-    try:
-        return render_template("imageViewer.html", username=session['username'])
-    except FileNotFoundError as e:
-        return f"{e}"
+    if 'username' in session:
+        try:
+            return render_template("imageViewer.html", username=session['username'])
+        except FileNotFoundError as e:
+            return f"{e}"
+    else:
+        return redirect("/login")
 
 
 @app.route("/listen", methods=["GET", "POST"])
