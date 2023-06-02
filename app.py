@@ -26,7 +26,11 @@ def createFile(log):
 @app.route("/clear", methods=["GET"])
 def hideLogs():
     for file in os.listdir("files/"):
-        os.system(f"mv files/{file} files/{file}.hide")
+        # skip already hiden files 
+        if file.split(".")[-1] == "hide":
+            continue
+        else:
+            os.system(f"mv files/{file} files/{file}.hide")
     
     response = {
         "message": "Logs cleared",      
